@@ -17,8 +17,8 @@ class BotConfig:
 def load_config() -> BotConfig:
     token = os.getenv("TELEGRAM_BOT_TOKEN")
     if not token:
-        raise RuntimeError("TELEGRAM_BOT_TOKEN не задан в окружении")
-    tmp_dir = Path(os.getenv("BOT_TMP_DIR", "./tmp"))
+        raise RuntimeError("TELEGRAM_BOT_TOKEN is undefined")
+    tmp_dir = Path(os.getenv("BOT_TMP_DIR", "./tmp")) # for cache
     tmp_dir.mkdir(parents=True, exist_ok=True)
     return BotConfig(
         token=token,
