@@ -23,3 +23,10 @@ class Checkpoint(BaseModel):
     step: str                          # stage
     deadline: Optional[str] = None
 
+class PlannerTask(BaseModel):
+    """Final JSON, bot's request"""
+    title: str
+    description: Optional[str] = None
+    deadline: Optional[str] = None
+    checkpoints: list[Checkpoint] = Field(default_factory=list)
+    tags: list[str] = Field(default_factory=list)
